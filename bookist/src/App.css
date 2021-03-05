@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+}
+.bigBookBox {
+  display:flex;
+  justify-content: center;
+  height:89vh;
+}
+
+header {
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  height:10vh;
+}
+
+.searchComponent {
+  height: 1vh;
+  margin-bottom:50px;
+}
+
+figure {
+  z-index: 10;
+}
+
+figcaption {
+  width:200px;
+  word-wrap: normal;
+}
+
+.bookList {
+  display:inline-flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  width: 80vw;
+  height: 89vh
+
+}
+
+.shelf{
+  display: inline-flex;
+  flex-direction:column;
+  width:20vw;
+  height:89vh;
+  border-left:solid gray; 
+  background-color:white;
+}
+.shelfList {
+  color:black;
+}
+li {
+  color:black; 
+  marker: white;
+}
