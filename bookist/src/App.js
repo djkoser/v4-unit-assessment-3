@@ -14,23 +14,6 @@ export default class App extends Component {
       shelf:[]
     }
   }
-  addToshelf = (id) => {
-    let shelfUpdated = this.state.shelf.slice(); 
-    let booksCopy = this.state.books.slice(); 
-    console.log()
-    let toAdd = booksCopy.filter(book=> Number.parseInt(book.id) === Number.parseInt(id) ? true : false);
-    shelfUpdated.push(toAdd);
-    console.log(shelfUpdated)
-    this.setState ({
-      shelf:shelfUpdated
-    })
-  };
-
-  clearShelf = () => {
-    this.setState({
-      shelf:[],
-    })
-  };
 
   filterBooks = (keyword) => {
     keyword = keyword.toLowerCase(); 
@@ -46,15 +29,28 @@ export default class App extends Component {
       books:data,
     })
   }
-
+  addToShelf = (id) => {
+    let shelfUpdated = this.state.shelf.slice();
+    let books = this.state.books.slice();
+    let toAdd = books.filter(element=>Number.parseInt(id)===element.id ? true : false);
+    shelfUpdated.push(toAdd[0]);
+    this.setState({
+      shelf:shelfUpdated
+    })
+  }
+  clearShelf= () => {
+    this.setState({
+      shelf:[]
+    })
+  }
   render () {
     return (
       <div className="App">
         <Header/>
         <SearchBar filterBooks={this.filterBooks} reset = {this.reset}/>
         <div className='bigBookBox'>
-          <BookList books={this.state.books} addToShelf={this.addToshelf}/>
-          <Shelf shelf={this.state.shelf} clearShelf={this.clearShelf}/>
+          <BookList books={this.state.books} addToShelf={this.addToShelf}/>
+          <Shelf shelfProp={this.state.shelf} clearShelf={this.clearShelf}/>
         </div>
       </div>
 

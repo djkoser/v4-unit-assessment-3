@@ -9,7 +9,7 @@ export default class BookList extends Component {
   }
   render () {
     let bookRender = this.props.books.map(e=>(
-    <figure onClick ={event=>this.props.addToShelf(event.target.attributes.id)}>
+    <figure onClick ={event=>this.props.addToShelf(event.target.attributes.id.value)}>
       <img id={e.id} alt={e.title} src={e.img} width='150px'></img>
       <figcaption>{e.title}</figcaption>
     </figure>))
