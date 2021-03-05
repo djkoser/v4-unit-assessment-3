@@ -1,13 +1,19 @@
+@import url(//db.onlinewebfonts.com/c/947905fe2a2b651309d2ad76c83d4402?family=Bookerly);
+@font-face {font-family: "Bookerly"; src: url("//db.onlinewebfonts.com/t/947905fe2a2b651309d2ad76c83d4402.eot"); src: url("//db.onlinewebfonts.com/t/947905fe2a2b651309d2ad76c83d4402.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/947905fe2a2b651309d2ad76c83d4402.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/947905fe2a2b651309d2ad76c83d4402.woff") format("woff"), url("//db.onlinewebfonts.com/t/947905fe2a2b651309d2ad76c83d4402.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/947905fe2a2b651309d2ad76c83d4402.svg#Bookerly") format("svg"); }
+
 * {
   box-sizing: border-box;
+  background-color: #F1F1F1;
 }
 .App {
   text-align: center;
+  display:flex;
+  flex-direction: column; 
+
 }
 .bigBookBox {
   display:flex;
   justify-content: center;
-  height:89vh;
 }
 
 header {
@@ -16,14 +22,21 @@ header {
   align-content: center;
   height:10vh;
 }
+h1 {
+  color:#169494;
+  padding:0px;
+  margin-top:60px;
+  font-family: bookerly; 
 
+}
 .searchComponent {
   height: 1vh;
   margin-bottom:50px;
+  margin-top:20px;
 }
-
-figure {
-  z-index: 10;
+.searchElements {
+  font-size: 16pt;
+  margin-left:20px;
 }
 
 figcaption {
@@ -36,22 +49,35 @@ figcaption {
   flex-wrap: wrap;
   align-content: space-around;
   width: 80vw;
-  height: 89vh
-
 }
 
 .shelf{
   display: inline-flex;
   flex-direction:column;
   width:20vw;
-  height:89vh;
   border-left:solid gray; 
-  background-color:white;
 }
 .shelfList {
   color:black;
 }
+
+.shelfButton {
+  width:100px; 
+  position:relative;
+  left: 7.5vw;
+}
+.shelfButton:hover, .searchButtons:hover {
+  background-color:lightgreen;
+}
+
+ul {
+  list-style-type:none;
+  text-align: left;
+  font-size:larger;
+  font-weight:600;
+}
 li {
   color:black; 
   marker: white;
+  margin-bottom: 20px;
 }

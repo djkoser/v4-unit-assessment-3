@@ -15,6 +15,11 @@ export default class App extends Component {
     }
   }
 
+  reset = () => {
+    this.setState({
+      books:data,
+    })
+  }
   filterBooks = (keyword) => {
     keyword = keyword.toLowerCase(); 
     let filtered = [...this.state.books];
@@ -23,26 +28,31 @@ export default class App extends Component {
       books:filtered
     }); 
   }
-
-  reset = () => {
-    this.setState({
-      books:data,
-    })
-  }
   addToShelf = (id) => {
+    let idInt = Number.parseInt(id);
     let shelfUpdated = this.state.shelf.slice();
-    let books = this.state.books.slice();
-    let toAdd = books.filter(element=>Number.parseInt(id)===element.id ? true : false);
-    shelfUpdated.push(toAdd[0]);
-    this.setState({
-      shelf:shelfUpdated
-    })
-  }
+    let toAdd = this.state.books.slice();
+    toAdd = toAdd.filter(element => {
+      if (idInt===element.id) {
+        if (shelfUpdated.filter(element => idInt === element.id ? true : false).length===0) {
+          return true;
+        };
+      } else {return false}
+    });
+    if (toAdd[0]) {
+      shelfUpdated.push(toAdd[0])
+      this.setState({
+        shelf:shelfUpdated
+      });
+    };   
+  };
+
   clearShelf= () => {
     this.setState({
       shelf:[]
-    })
-  }
+    });
+  };
+
   render () {
     return (
       <div className="App">
@@ -56,5 +66,5 @@ export default class App extends Component {
 
     )
   };
-}
+};
 

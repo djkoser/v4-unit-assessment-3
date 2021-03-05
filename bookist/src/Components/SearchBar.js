@@ -26,13 +26,17 @@ export default class SearchBar extends Component {
   }
 
   render () {
+    let clearButton; 
+    if (this.state.userInput) {
+      clearButton = <button className="searchElements searchButtons" onClick={this.handleClear}>clear search</button>
+    }
+
     return (
       <div className='searchComponent'>
-        <input type='text' placeholder='Please type here to search' value={this.state.userInput} onChange={e=>this.handleChange(e.target.value)}></input>
-        <button onClick={this.handleClick}>search</button>
-        <button onClick={this.handleClear}>clear search</button>
+        <input className="searchElements" type='text' placeholder='Please type here to search' value={this.state.userInput} onChange={e=>this.handleChange(e.target.value)}></input>
+        <button className="searchElements searchButtons" onClick={this.handleClick}>search</button>
+        {clearButton}
       </div>
-
     )
   };
 }

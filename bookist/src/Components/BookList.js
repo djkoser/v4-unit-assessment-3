@@ -1,22 +1,16 @@
-import React, {Component} from 'react'; 
+import React from 'react'; 
 //books state and addToShelf(id)
-export default class BookList extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-
-    }
-  }
-  render () {
-    let bookRender = this.props.books.map(e=>(
-    <figure onClick ={event=>this.props.addToShelf(event.target.attributes.id.value)}>
-      <img id={e.id} alt={e.title} src={e.img} width='150px'></img>
+export default function BookList (props) {
+  let bookRender = props.books.map(e=>(
+    <figure>
+      <img onClick ={event=>props.addToShelf(event.target.attributes.id.value)} width='200px' id={e.id} alt={e.title} src={e.img}></img>
       <figcaption>{e.title}</figcaption>
+      <figcaption>{e.author}</figcaption> 
     </figure>))
-    return (
-      <div className = 'bookList'>
-        {bookRender}
-      </div>
-    )
-  };
-} 
+
+  return (
+    <div className = 'bookList'>
+      {bookRender}
+    </div>
+  )
+};
